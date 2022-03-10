@@ -72,7 +72,7 @@ for (let i = 0; i < arrayOriginal.length; i++) {
 
 //c) Escreva um programa que **crie** um novo array contendo, somente, 
 //os números pares do array original e **imprima** esse novo array 
-let arrayOriginal = [10,20,9,35,40,50]
+/*let arrayOriginal = [10,20,9,35,40,50]
 let arrayPar = []
 
 for (let i = 0; i < arrayOriginal.length; i++) {
@@ -81,7 +81,7 @@ arrayPar.push(arrayOriginal[i])
 
 } 
 console.log(arrayPar) 
-}
+}*/
 
 /*
        d) Escreva um programa que **crie** um novo array contendo strings, da seguinte forma:
@@ -89,3 +89,4 @@ console.log(arrayPar)
     
     e) Escreva um programa que imprima no console o maior e o menor números contidos no array original*/  
   
+    
