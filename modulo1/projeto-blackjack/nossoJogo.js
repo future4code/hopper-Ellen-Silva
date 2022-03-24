@@ -35,4 +35,3 @@ else ("Usuário"==="Computador")
    console.log("Empatou!")*/
 
 
- 
