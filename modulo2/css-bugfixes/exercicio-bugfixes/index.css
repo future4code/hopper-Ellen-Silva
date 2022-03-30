@@ -116,7 +116,10 @@ table {
     
 }
 
-
+td img{
+    width: 100px;
+    
+}
 
 td button {
     background-color: #fadf63;
