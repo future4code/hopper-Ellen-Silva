@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(164, 125, 173);
+    
+}
+
+h1{
+    color:rgb(58, 3, 110);
+ 
+}
+p{
+    color: rgb(58, 3, 110);
+    }
+
+img{
+ width:30px;
+ height: 30px;
+    }
+
+.nome-loja{
+    font-size: 50px;
+
+}
+th{
+    background-color: rgb(139, 85, 190);
+}
+
+tr{
+    background-color: rgb(192, 147, 235);
+}
