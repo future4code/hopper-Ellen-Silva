@@ -10,9 +10,10 @@ const MainContainer = styled.div`
 `
 
 class App extends React.Component {
-  render() {
-    return (
-      <MainContainer>
+
+
+  listaComponentes = [
+    <MainContainer>
         <Post
           nomeUsuario={'paulinha'}
           fotoUsuario={'https://picsum.photos/50/48'}
@@ -30,6 +31,22 @@ class App extends React.Component {
           fotoUsuario={'https://picsum.photos/50/49'}
           fotoPost={'https://picsum.photos/200/148'}
         />
+      </MainContainer>
+
+
+
+  ]
+  render() {
+    
+    return (
+      <MainContainer>
+
+        <input placeholder='nome' value=''/>
+        <input placeholder='nome' value=''/>
+        <input placeholder='nome' value=''/>
+        <button>Confirmar</button>
+        {this.listaComponentes}
+        
       </MainContainer>
 
 
