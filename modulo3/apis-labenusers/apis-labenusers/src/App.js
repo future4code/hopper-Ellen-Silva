@@ -1,16 +1,37 @@
-import './App.css';
-import IntegracaoAPI from './integracaoAPI';
 
-function App() {
-  return (
-    <div className="App">
-      <p></p>
-      <IntegracaoAPI>
+import React from 'react';
+import './App.css';
+import TelaCadastro from './components/telaCadastro';
+import TelaLista from './components/telaLista';
+
+
+class App extends React.Component {
+
+  state = {
+    telaAtual:"cadastro"
+  }
+  trocaDeTela = () =>{
+    this.setState({telaAtual: this.state.telaAtual === "cadastro"
+    ? "lista" 
+    : "cadastro"})
+    
+  
+    
+  
+  } 
+
+  render(){
+    return(
+
+      <div>{
+        this.state.telaAtual === "cadastro" 
+        ? <TelaCadastro troca={this.trocaDeTela}/> 
+        : <TelaLista troca={this.trocaDeTela}/>
+        }
         
-      </IntegracaoAPI>
-      
-    </div>
-  );
+      </div>
+    )
+  }
 }
 
 export default App;
