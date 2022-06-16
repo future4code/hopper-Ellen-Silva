@@ -1,4 +1,4 @@
-import React from "react";
+import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header `
@@ -34,7 +34,10 @@ cursor: pointer;
 
 
 function HomePage(){
+
+    const navigate = useNavigate();
 return (
+
     <div>
         <Header>
             <H2>Labex</H2>
@@ -44,8 +47,8 @@ return (
         </Header>
 
         <Nav>
-            <Botao>Viagens</Botao>
-            <Botao>Area de Adm</Botao>
+            <Botao onClick={()=> navigate("/trips/list")}>Viagens</Botao>
+            <Botao onClick={() => navigate("/login")}>Area de Adm</Botao>
         </Nav>
 
     </div>
