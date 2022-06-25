@@ -1,19 +1,21 @@
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components";
+import logo from "../components/img/naveLogo.png";
+
 
 
 const Header= styled.header`
 display:flex;
-justify-content:space-between;
 background: rgb(17,14,73);
 background: linear-gradient(90deg, rgba(17,14,73,1) 0%, rgba(101,57,189,1) 37%, rgba(159,112,213,0.8575805322128851) 100%);
 padding-left:20px;
 padding-right:20px;
 align-items:center;
+font-family: 'Press Start 2P', cursive;
 ` 
 
 const H2 = styled.h2`
-color:gray;
+color:white;
 cursor: pointer;
 `
 
@@ -32,7 +34,9 @@ height:40px;
 margin: 200px 20px;
 background-color:rgba(159,112,213,0.8575805322128851);
 cursor: pointer;
-
+`
+const Imagem = styled.img`
+width:60px;
 `
 
 function ApplicationFormPage() {
@@ -46,6 +50,9 @@ function ApplicationFormPage() {
         <div>
         <Header>
             <H2 onClick={() => navigate("/")}>Labex</H2>
+            <div>
+            <Imagem src={logo}></Imagem>
+            </div>
            
         </Header>
             
