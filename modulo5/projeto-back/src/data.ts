@@ -23,7 +23,7 @@ export let users: User[]= [
         cpf: "005.333.444-88",
         birthday: '25/02/1950',
         balance:0,
-        extract:[{value:0, date:'',description:''}]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
     },
     {
         id: 2,
@@ -31,7 +31,7 @@ export let users: User[]= [
         cpf: "025.383.254-44",
         birthday: "03/06/1996",
         balance:0,
-        extract:[]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
     },
     {
         id: 3,
@@ -39,7 +39,7 @@ export let users: User[]= [
         cpf: "045.323.414-38",
         birthday: "21/08/1990",
         balance:0,
-        extract:[]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
 
     },
     {
@@ -48,7 +48,7 @@ export let users: User[]= [
         cpf: "002.373.489-89",
         birthday: "17/05/1971",
         balance:0,
-        extract:[]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
     },
     {
         id: 5,
@@ -56,7 +56,7 @@ export let users: User[]= [
         cpf: "008.322.454-82",
         birthday: "17/02/1984",
         balance:0,
-        extract:[]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
     },
     {
         id: 6,
@@ -64,6 +64,6 @@ export let users: User[]= [
         cpf: "001.335.434-81",
         birthday: "06/10/1966",
         balance:0,
-        extract:[]
+        extract:[{value:0, date:'31/08/2022',description:'extrato inicial'}]
     }
 ]

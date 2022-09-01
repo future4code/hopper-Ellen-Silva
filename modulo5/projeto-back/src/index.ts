@@ -26,7 +26,7 @@ const age = (formatedDate - birthDate)
    
    if(age < 18){
     errorCode = 403
-    throw new Error("Idade não permetida, sua idade é inferior a 18 anos");
+    throw new Error("Idade não permitida, sua idade é inferior a 18 anos");
     
    }
 
@@ -40,6 +40,10 @@ const age = (formatedDate - birthDate)
     throw new Error("CPF ja cadastrado");
     
   }
+  
+  const newExtract = {
+    value:0, date:'31/08/2022',description:'extrato inicial'
+  }
 
  
     const newUser : User = {
@@ -48,7 +52,7 @@ const age = (formatedDate - birthDate)
       cpf: cpf,
       birthday: birthday,
       balance: balance,
-      extract:extract,
+      extract:[newExtract],
     }
 
     users.push(newUser)
@@ -61,12 +65,26 @@ const age = (formatedDate - birthDate)
   }
 })
 
-app.get('users/saldo', (req:Request , res:Response)=>{
-
+app.get('/users/saldo', (req:Request , res:Response)=>{
+  let errorCode = 422
   try{
+    const userName = req.query.name;
+    const userCPF = req.query.cpf;
+
+    if(!userName || !userCPF){
+      errorCode = 422;
+      throw new Error("usuário não encontrado");
+      
+    }
+    
+    const userSaldo = users.find(u => u.cpf === userCPF)
+    
+    let saldoPesquisado = `Seu saldo atual é ${userSaldo?.balance}`
+    
+    res.status(200).send({saldoPesquisado})
 
   }catch (error:any){
-    
+    res.status(errorCode).send(error.message)
   }
 })
 
