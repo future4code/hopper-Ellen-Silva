@@ -3,10 +3,10 @@ import connection from "./connection";
 const ToDoList = async () => {
     try {
         await connection.raw(`
-            CREATE TABLE IF NOT EXISTS Users (
+            CREATE TABLE IF NOT EXISTS Usuarios (
             id BIGINT PRIMARY KEY,
-            nome VARCHAR(255) NOT NULL,
-            nickname DECIMAL(8, 2) NOT NULL,
+            name VARCHAR(255) NOT NULL,
+            nickname VARCHAR(200) NOT NULL,
             email VARCHAR(255) NOT NULL
             );
         `)
@@ -21,7 +21,7 @@ const ToDoList = async () => {
 async function CriarUsuarios() {
     try {
         await connection.raw(`
-            INSERT INTO Users(id, name, nickname, email)
+            INSERT INTO Usuarios(id, name, nickname, email)
             VALUES 
             (1, "Ellen", "Ellenls", "ellen@gmail.com"),
             (2, "Gabriela", "Gabi", "gabi@gmail.com"),

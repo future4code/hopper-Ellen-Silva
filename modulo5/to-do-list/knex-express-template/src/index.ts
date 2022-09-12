@@ -1,7 +1,7 @@
 import express, {Request, Response} from "express";
 import cors from "cors";
 import { AddressInfo } from "net";
-import { Users } from "./types";
+import { Usuarios } from "./types";
 import connection from "./connection";
 
 const app = express();
@@ -20,14 +20,14 @@ try {
     throw new Error("Preencha todas as informações corretamente")
   }
   
-  const novoUsuario:Users = {
+  const novoUsuario:Usuarios = {
     id: Date.now(),
     name: name,
     nickname: nickname,
     email: email
   }
   await connection.raw(`
-  INSERT INTO User(id, name, nickname, email)
+  INSERT INTO Usuarios(id, name, nickname, email)
   
   VALUES(${novoUsuario.id},"${novoUsuario.name}","${novoUsuario.nickname}","${novoUsuario.email}")
           
@@ -55,7 +55,7 @@ app.get("/user/:id", async (req:Request , res: Response)=>{
     if(idUser){
       const pegarUsuario = await connection.raw(`
     
-    SELECT * FROM User
+    SELECT * FROM Usuarios
     WHERE id = "${idUser}"
     `)
     res.status(200).send(pegarUsuario[0])
@@ -81,7 +81,7 @@ app.put("/user/edit/:id", async (req:Request , res:Response)=>{
     }
 
     await connection.raw(`
-    UPDATE Users
+    UPDATE Usuarios
     SET ${editUser}
     WHERE id = ${id} 
     `)
