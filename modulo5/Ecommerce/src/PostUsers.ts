@@ -1,9 +1,10 @@
 import { Request, Response }from "express"
+import { connection } from "./data/connection"
 import { Labecommerce_users,users } from "./types"
 
 
 
-export const postUsers = (req: Request, res: Response) => {
+export const postUsers = async(req: Request, res: Response):Promise<void> => {
    let codeError = 400
    
    try {
@@ -20,28 +21,18 @@ export const postUsers = (req: Request, res: Response) => {
            
        }
 
-       const user = users.find((use)=>{
-          return use.id === id
-        })
-
-        if(!users){
-           throw new Error("Usuário não encontrado");
-           
-        }
-              
+                
      
 
-const newUser: Labecommerce_users = {
-   id:Date.now(),
+await connection("labecommerce_users").insert({
+   id:Math.floor(Math.random() * 10 + 1),
    name:name,
    email:email,
    password:password
-   
+})
+      
 
-}
-
-       users.push(newUser)
-       res.status(200).send({message:"Usuário cadastrado com sucesso",users})       
+      res.status(200).send({message:"Usuário cadastrado com sucesso",users})       
    
    } catch(error:any) {
       res.status(codeError).send(error.message)

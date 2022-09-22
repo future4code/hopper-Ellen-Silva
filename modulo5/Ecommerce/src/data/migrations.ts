@@ -28,11 +28,14 @@ const createTableProducts = () => connection
 const createTableRegister = () => connection
    .raw(`
       CREATE TABLE labecommerce_purchases(
-         id INT PRIMARY KEY,
-         user_id VARCHAR(255) NOT NULL,
+         id VARCHAR(200) PRIMARY KEY,
+         user_id INT NOT NULL,
          product_id INT NOT NULL,
-         quantity INT
-         total_price INT)
+         quantity INT,
+         total_price INT,
+
+         FOREIGN KEY(user_id) REFERENCES labecommerce_users(id),
+         FOREIGN KEY(product_id) REFERENCES labecommerce_products(id));
       `)
    .then(() => { console.log("Tabelas criadas") })
    .catch(printError)
@@ -43,6 +46,7 @@ const closeConnection = () => { connection.destroy() }
 
 createTables()
 createTableProducts()
+createTableRegister()
 
    .finally(closeConnection)
 

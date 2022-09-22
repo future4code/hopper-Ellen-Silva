@@ -1,9 +1,10 @@
 import { Request, Response }from "express"
+import { connection } from "./data/connection"
 import { labecommerce_products,products} from "./types"
 
 
 
-export const postAllProducts = (req: Request, res: Response) => {
+export const postAllProducts = async(req: Request, res: Response): Promise<void> => {
    let codeError = 400
    
    try {
@@ -20,26 +21,15 @@ export const postAllProducts = (req: Request, res: Response) => {
            
        }
 
-       const product = products.find((produ)=>{
-          return produ.id === id
-        })
-
-        if(!products){
-           throw new Error("Produto não encontrado");
-           
-        }
-              
-     
-
-const newProducts: labecommerce_products = {
-   id:Date.now(),
+      
+await connection("labecommerce_products").insert({
+   id:Math.floor(Math.random() * 10 + 1),
    name:name,
    price:price,
    image_url:image_url
-   
-
-}
-       products.push(newProducts)
+})
+  
+         
        res.status(200).send({message:"Produto cadastrado com sucesso",products})       
    
    } catch(error:any) {

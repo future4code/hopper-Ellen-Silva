@@ -12,6 +12,14 @@ export type labecommerce_products = {
     image_url:string
 }
 
+export type labecommerce_purchases = {
+    id:number,
+    user_id:string,
+    product_id:string,
+    quantity:number,
+    total_price:number
+}
+
 
 export let users: Labecommerce_users[] =[
  {
@@ -27,5 +35,15 @@ export let products: labecommerce_products[] = [
         name:"",
         price:0,
         image_url:""
+    }
+]
+
+export let buy: labecommerce_purchases[] = [
+    {
+        id:0,
+        user_id:"",
+        product_id:"",
+        quantity:0,
+        total_price:0
     }
 ]
